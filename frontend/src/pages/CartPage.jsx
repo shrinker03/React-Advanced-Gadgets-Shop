@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { addToCart } from '../actions/cartActions'
+import { addToCart, removeFromCart } from '../actions/cartActions'
 import { useDispatch, useSelector} from 'react-redux'
 import {Row, Col, Image, ListGroup, Form, Button, Card} from 'react-bootstrap'
 import Message from '../components/Message'
@@ -21,8 +21,8 @@ const CartPage = ({match, location, history}) => {
         }
     }, [dispatch, productId, qty])
 
-    const removeFromCartHandler = () => {
-        console.log('remove item')
+    const removeFromCartHandler = (id) => {
+        dispatch(removeFromCart(id))
     }
 
     const checkoutHandler = () => {
