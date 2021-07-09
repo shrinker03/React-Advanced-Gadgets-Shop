@@ -26,7 +26,7 @@ const authUser = asyncHandler(async (req, res) => {
 
 // @desc    User profile
 // @route   GET /profile
-// @access  PUBLIC 
+// @access  PRIVATE 
 const getUserProfile = asyncHandler(async (req, res) => {
     const user = await User.findById(req.user._id)
 
@@ -43,4 +43,39 @@ const getUserProfile = asyncHandler(async (req, res) => {
     }
 })
 
-export {authUser, getUserProfile}
+// @desc    User Register
+// @route   POST /users
+// @access  PUBLIC 
+const registerUser = asyncHandler(async (req, res) => {
+    const {name, email, password} = req.body
+
+    console.log(password)
+
+    const userExist = await User.findOne({email})
+
+    if(userExist) {
+        res.status(400)
+        throw new Error('User Already Exist')
+    }
+
+    const user = await User.create({
+        name,
+        email,
+        password
+    })
+
+    if(user) {
+        res.json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAdmin: user.isAdmin,
+            token: generateToken(user._id)
+        })
+    }else {
+        res.status(400)
+        throw new Error('Invalid User Data')
+    }
+})
+
+export {authUser, registerUser , getUserProfile}
