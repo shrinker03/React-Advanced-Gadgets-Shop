@@ -32,7 +32,12 @@ export const login = (email, password) => async(dispatch) => {
     }
 }
 
-
+export const logOut = () => (dispatch) => {
+    localStorage.removeItem('userInfo')
+    dispatch({
+        type: USER_LOGOUT
+    })
+}
 
 export const register = (name, email, password) => async(dispatch) => {
     try{
@@ -68,11 +73,4 @@ export const register = (name, email, password) => async(dispatch) => {
                 : error.response
         })
     }
-}
-
-export const logOut = () => (dispatch) => {
-    localStorage.removeItem('userInfo')
-    dispatch({
-        type: USER_LOGOUT
-    })
 }
