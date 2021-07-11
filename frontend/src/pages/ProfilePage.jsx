@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
-import {getUserDetails} from '../actions/userActions'
+import {getUserDetails, updateUserDetails} from '../actions/userActions'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 
@@ -23,6 +23,10 @@ const ProfilePage = ({location, history}) => {
 
     const {userInfo} = userLogin
 
+    const userProfileUpdate = useSelector(state => state.userProfileUpdate)
+
+    const {success} = userProfileUpdate
+
     useEffect(() => {
         if(!userInfo) {
             history.push('/login')
@@ -42,7 +46,7 @@ const ProfilePage = ({location, history}) => {
         if(password !== confirmPassword) {
             setMessage('Password do not match!!!')
         }else {
-            //Dispatch update action
+            dispatch(updateUserDetails({id: user._id, name, email, password}))
         }
     }
 
@@ -51,6 +55,7 @@ const ProfilePage = ({location, history}) => {
             <Col md={3}>
                 <h2>User Details</h2>
                 {message && <Message variant="danger">{message}</Message>}
+                {success && <Message variant="success">Profile Updated</Message>}
                 {error && <Message variant="danger">{error}</Message>}
                 {loading && <Loader></Loader>}
 
@@ -72,7 +77,7 @@ const ProfilePage = ({location, history}) => {
                         <Form.Control type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}></Form.Control>
                     </Form.Group>
                     <Button type="submit" variant="primary">
-                        Sign In
+                        Update
                     </Button>
                 </Form>
             </Col>
