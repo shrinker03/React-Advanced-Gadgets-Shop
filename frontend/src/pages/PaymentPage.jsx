@@ -5,9 +5,8 @@ import FormContainer from '../components/FormContainer'
 import { savePaymentMethod } from '../actions/cartActions'
 import CheckoutSteps from '../components/CheckoutSteps'
 
-const RegisterPage = ({history}) => {
-    const cart = useSelector(state => state.cart)
-
+const PaymentPage = ({history}) => {
+    const cart = useSelector((state) => state.cart)
     const {shippingAddress} = cart
     
     if(!shippingAddress) {
@@ -51,4 +50,4 @@ const RegisterPage = ({history}) => {
     )
 }
 
-export default RegisterPage
+export default PaymentPage

@@ -5,9 +5,15 @@ import FormContainer from '../components/FormContainer'
 import { saveAddress } from '../actions/cartActions'
 import CheckoutSteps from '../components/CheckoutSteps'
 
-const RegisterPage = ({history}) => {
-    const cart = useSelector(state => state.cart)
+const ShippingPage = ({history}) => {
+    const login = useSelector(state => state.userLogin)
+    const {userInfo} = login
 
+    if(!userInfo) {
+        history.push('/login')
+    }
+
+    const cart = useSelector(state => state.cart)
     const {shippingAddress} = cart
     
     const [address, setAddress] = useState(shippingAddress.address)
@@ -52,4 +58,4 @@ const RegisterPage = ({history}) => {
     )
 }
 
-export default RegisterPage
+export default ShippingPage
