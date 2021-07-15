@@ -2,9 +2,12 @@ import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
 import colors  from 'colors'
-import productRoutes from './routes/productRoutes.js'
-import userRoutes from './routes/userRoutes.js'
+
 import {errorHandler, notFound} from './middleware/errorMiddeware.js'
+
+import userRoutes from './routes/userRoutes.js'
+import productRoutes from './routes/productRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
 
 dotenv.config()
 
@@ -20,6 +23,7 @@ app.get("/", (req, res) => {
 
 app.use('/products', productRoutes)
 app.use('/users', userRoutes)
+app.use('/orders', orderRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
