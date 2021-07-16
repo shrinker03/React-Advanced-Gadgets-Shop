@@ -21,12 +21,13 @@ const OrderDetailsPage = ({match}) => {
 
     const {order, error, loading} = orderDetails
 
-    // const addDecimal = (num) => {
-    //     return (Math.round(num * 100) / 100).toFixed(2)
-    // }
+    const addDecimal = (num) => {
+        return (Math.round(num * 100) / 100).toFixed(2)
+    }
 
-    // order.itemsPrice = addDecimal(order.orderItems.reduce((acc, item) => acc + item.price, 0))
-
+    if(!loading) {
+        order.itemsPrice = addDecimal(order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0))
+    }
     
     return (
         loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : 

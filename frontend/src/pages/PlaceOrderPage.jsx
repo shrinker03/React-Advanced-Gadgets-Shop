@@ -15,8 +15,8 @@ const PlaceOrderPage = ({history}) => {
         return (Math.round(num * 100) / 100).toFixed(2)
     }
 
-    cart.itemsPrice = addDecimal(cart.cartItems.reduce((acc, item) => acc + item.price, 0))
-    cart.shippingPrice = addDecimal(cart.cartItems > 100 ? 0 : 100)
+    cart.itemsPrice = addDecimal(cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0))
+    cart.shippingPrice = addDecimal(cart.itemsPrice > 100 ? 0 : 100)
     cart.taxPrice = addDecimal(Number(cart.itemsPrice * 0.15).toFixed(2))
     cart.totalPrice = addDecimal(Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice))
 
