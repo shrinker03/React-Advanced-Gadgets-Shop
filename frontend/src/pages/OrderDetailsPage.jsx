@@ -163,7 +163,7 @@ const OrderDetailsPage = ({match}) => {
                                         Total
                                     </Col>
                                     <Col>
-                                        ₹{order.totalPrice}
+                                        ${order.totalPrice}
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
