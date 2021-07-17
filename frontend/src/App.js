@@ -12,7 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 import ShippingPage from "./pages/ShippingPage";
 import PaymentPage from "./pages/PaymentPage";
 import PlaceOrderPage from "./pages/PlaceOrderPage";
-import OrderDetailsPage from "./pages/OrderDetails";
+import OrderDetailsPage from "./pages/OrderDetailsPage";
 
 const App = () => {
   return (
