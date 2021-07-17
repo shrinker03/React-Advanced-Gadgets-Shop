@@ -42,14 +42,21 @@ const OrderDetailsPage = ({match}) => {
                             {order.user.name}</p>
                             <p><strong>Email: </strong>
                             <a href={`mailto: ${order.user.email}`}>{order.user.email}</a></p>
-                            <strong>Address: </strong>
-                            {order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.postalCode}, {order.shippingAddress.country}
+                            <p><strong>Address: </strong>
+                            {order.shippingAddress.address}, 
+                            {order.shippingAddress.city}, 
+                            {order.shippingAddress.postalCode}, 
+                            {order.shippingAddress.country}</p>
+                            {order.isDelivered ? <Message variant="success">Delivered on {order.deliveredAt}</Message> : <Message variant="danger">Not Delivered</Message>}
                         </ListGroup.Item>
 
                         <ListGroup.Item>
+                            <p>
                             <h2>Payment Method</h2>
                             <strong>Method: </strong>
                             {order.paymentMethod}
+                            </p>
+                            {order.isPaid ? <Message variant="success">Paid on {order.paidAt}</Message> : <Message variant="danger">Not Paid</Message>}
                         </ListGroup.Item>
 
                         <ListGroup.Item>
@@ -121,9 +128,6 @@ const OrderDetailsPage = ({match}) => {
                                         ${order.totalPrice}
                                     </Col>
                                 </Row>
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                                {error && <Message variant="danger">{error}</Message>}
                             </ListGroup.Item>
                         </ListGroup>
                     </Card>
