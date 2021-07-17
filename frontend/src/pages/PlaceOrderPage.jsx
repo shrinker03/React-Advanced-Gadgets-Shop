@@ -127,7 +127,7 @@ const PlaceOrderPage = ({history}) => {
                                         Total
                                     </Col>
                                     <Col>
-                                        ${cart.totalPrice}
+                                        ₹{cart.totalPrice}
                                     </Col>
                                 </Row>
                             </ListGroup.Item>
@@ -138,7 +138,9 @@ const PlaceOrderPage = ({history}) => {
                                 <Button type="button"
                                     className="col-12"
                                     disabled={cart.cartItems.length === 0}
-                                    onClick={placeOrderHandler}>
+                                    onClick={placeOrderHandler} 
+                                    currency="INR"    
+                                    >
                                     Place Order
                                 </Button>
                             </ListGroup.Item>
