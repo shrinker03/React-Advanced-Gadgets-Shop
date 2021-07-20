@@ -63,7 +63,7 @@ const RegisterPage = ({location, history}) => {
                     <Form.Control type="password" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}></Form.Control>
                 </Form.Group>
                 <Button type="submit" variant="primary">
-                    Sign In
+                    Sign Up
                 </Button>
             </Form>
             
