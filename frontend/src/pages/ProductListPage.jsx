@@ -1,11 +1,17 @@
+//Importing the Libraries
 import React, {useEffect} from 'react'
 import { Button, Table, Row, Col } from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
-import {deleteProduct, listProducts} from '../actions/productActions'
 import {LinkContainer} from 'react-router-bootstrap'
+
+// Importing Product Actions  
+import {deleteProduct, listProducts} from '../actions/productActions'
+
+//Importing Components
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 
+//Creating a Product list page function
 const ProductListPage = ({history}) => {
     const dispatch = useDispatch()
 
