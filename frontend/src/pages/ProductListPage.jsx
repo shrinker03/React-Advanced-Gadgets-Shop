@@ -5,11 +5,12 @@ import {useSelector, useDispatch} from 'react-redux'
 import {LinkContainer} from 'react-router-bootstrap'
 
 // Importing Product Actions  
-import {deleteProduct, listProducts} from '../actions/productActions'
+import {createProduct, deleteProduct, listProducts} from '../actions/productActions'
 
 //Importing Components
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import { PRODUCT_CREATE_RESET } from '../constants/productConstants'
 
 //Creating a Product list page function
 const ProductListPage = ({history}) => {
@@ -21,16 +22,25 @@ const ProductListPage = ({history}) => {
     const productDelete = useSelector(state => state.productDelete)
     const {success: successDelete, error: errorDelete, loading: loadingDelete} = productDelete
 
+    const productCreate = useSelector(state => state.productCreate)
+    const {success: successCreate, error: errorCreate, loading: loadingCreate, product: createdProduct} = productCreate
+
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo} = userLogin
 
     useEffect(() => {
-        if(userInfo && userInfo.isAdmin) {
-            dispatch(listProducts())
-        }else {
+        dispatch({type: PRODUCT_CREATE_RESET})
+
+        if(!userInfo.isAdmin) {
             history.push('/login')
         }
-    }, [dispatch, history, userInfo, successDelete])
+
+        if(successCreate) {
+            history.push(`/admin/product/${createdProduct._id}/edit`)
+        }else {
+            dispatch(listProducts())
+        }
+    }, [dispatch, history, userInfo, successDelete, successCreate, createdProduct])
 
     const deleteHandler = (id) => {
         if(window.confirm('The Product will be Deleted Permanentaly. Are you sure?')) {
@@ -38,10 +48,8 @@ const ProductListPage = ({history}) => {
         }
     }
 
-    const createProductHandler = (id) => {
-        // if(window.confirm('The User will be Deleted Permanentaly. Are you sure?')) {
-        //     // Product handler
-        // }
+    const createProductHandler = () => {
+       dispatch(createProduct())
     }
 
     return (
@@ -55,7 +63,9 @@ const ProductListPage = ({history}) => {
                 </Col>
             </Row>
             {loadingDelete && <Loader />}
+            {loadingCreate && <Loader />}
             {errorDelete && <Message variant="danger">{errorDelete}</Message>}
+            {errorCreate && <Message variant="danger">{errorCreate}</Message>}
             {loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : (
                 <Table striped bordered hover responsive className="table-sm">
                     <thead>
@@ -73,7 +83,7 @@ const ProductListPage = ({history}) => {
                             <tr key={product._id}>
                                 <td>{product._id}</td>
                                 <td>{product.name}</td>
-                                <td>{product.price}</td>
+                                <td>${product.price}</td>
                                 <td>{product.category}</td>
                                 <td>{product.brand}</td>
                                 <td>
