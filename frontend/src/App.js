@@ -1,6 +1,11 @@
+// Importing react module
 import React from "react";
+
+// Importing neccessary libraries
 import { Container } from "react-bootstrap";
 import {BrowserRouter as Router, Route} from 'react-router-dom'
+
+// Importing Components to render in app.js
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
