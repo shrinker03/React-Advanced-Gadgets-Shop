@@ -1,9 +1,14 @@
+// Importing the modules
 import React, {useEffect} from 'react'
-import { addToCart, removeFromCart } from '../actions/cartActions'
+import {Link} from 'react-router-dom'
 import { useDispatch, useSelector} from 'react-redux'
 import {Row, Col, Image, ListGroup, Form, Button, Card} from 'react-bootstrap'
+
+// Importing the actions to be dispatch
+import { addToCart, removeFromCart } from '../actions/cartActions'
+
+// Importing the components 
 import Message from '../components/Message'
-import {Link} from 'react-router-dom'
 
 const CartPage = ({match, location, history}) => {
     const productId = match.params.id

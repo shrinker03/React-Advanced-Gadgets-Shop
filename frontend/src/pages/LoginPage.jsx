@@ -1,9 +1,14 @@
+// Importing the modules
 import React, {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import { Button, Col, Form, Row } from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
+
+// Importing the actions to be dispatch
 import {login} from '../actions/userActions'
+
+// Importing the Components
 import FormContainer from '../components/FormContainer'
-import {Link} from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 

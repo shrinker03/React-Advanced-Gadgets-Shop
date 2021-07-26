@@ -1,7 +1,12 @@
+// Importing the modules
 import React, {useEffect} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+
+// Importing the actions to be dispatch
 import {listProducts} from '../actions/productActions'
+
+// Importing the components
 import Product from '../components/Product';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
