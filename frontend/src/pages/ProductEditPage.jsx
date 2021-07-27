@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 import { Button, Form } from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
 import {listProductDetails, updateProduct} from '../actions/productActions'
@@ -18,6 +19,7 @@ const ProductEditPage = ({match, history}) => {
     const [category, setCategory] = useState('')
     const [countInStock, setCountInStock] = useState(0)
     const [description, setDescription] = useState('')
+    const [uploading, setUploading] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -46,6 +48,29 @@ const ProductEditPage = ({match, history}) => {
         }
         
     }, [product, dispatch, productId, history, successUpdate])
+
+    const uploadFileHandler = async (e) => {
+        const file = e.target.files[0]
+        const formData = new FormData()
+        formData.append('image', file)
+        setUploading(true)
+
+        try{
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form'
+
+                }
+            }
+
+            const {data} = await axios.post('/upload', formData, config)
+            setImage(data)
+            setUploading(false)
+        }catch(error) {
+            console.log(error)
+            setUploading(false)
+        }
+    }
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -77,6 +102,9 @@ const ProductEditPage = ({match, history}) => {
                         <Form.Label>Image</Form.Label>
                         <Form.Control type="image" placeholder="Enter image url" value={image} onChange={(e) => setImage(e.target.value)}></Form.Control>
                     </Form.Group>
+                    <Form.File id="image-file" label="Choose File" custom onChange={uploadFileHandler}>
+                    </Form.File>
+                    {uploading && <Loader />}
                     <Form.Group controlId="brand" className="my-3 ">
                         <Form.Label>Brand</Form.Label>
                         <Form.Control type="brand" placeholder="Enter Brand" value={brand} onChange={(e) => setBrand(e.target.value)}></Form.Control>
