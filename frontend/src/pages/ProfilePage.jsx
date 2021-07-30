@@ -1,9 +1,14 @@
+// Importing the modules
 import React, {useState, useEffect} from 'react'
 import { Button, Col, Form, Row, Table } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
+
+// Importing the actions to be dispatch
 import {getUserDetails, updateUserDetails} from '../actions/userActions'
 import { listMyOrder } from '../actions/orderActions'
+
+// Importing the components
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 

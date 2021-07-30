@@ -1,8 +1,13 @@
+// Importing the modules
 import React, {useState} from 'react'
 import { Button, Form, Col} from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
-import FormContainer from '../components/FormContainer'
+
+// Importing the action to be dispatch
 import { savePaymentMethod } from '../actions/cartActions'
+
+// Importing the Components
+import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
 
 const PaymentPage = ({history}) => {

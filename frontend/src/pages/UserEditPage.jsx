@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import { Button, Form } from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
-import {getUserDetails, updateUser} from '../actions/userActions'
-import FormContainer from '../components/FormContainer'
 import {Link} from 'react-router-dom'
+
+// Importing the constants and actions to be dispatch
+import { USER_UPDATE_RESET } from '../constants/userConstants'
+import {getUserDetails, updateUser} from '../actions/userActions'
+
+// Importing the components
+import FormContainer from '../components/FormContainer'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { USER_UPDATE_RESET } from '../constants/userConstants'
 
 const UserEditPage = ({match, history}) => {
     const userId = match.params.id

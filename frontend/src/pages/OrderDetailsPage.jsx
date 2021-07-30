@@ -1,13 +1,20 @@
+// Importing the modules
 import React, {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {PayPalButton} from 'react-paypal-button-v2'
-import {Link} from 'react-router-dom'
 import { Row, Col, ListGroup, Image, Card, Button} from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
+
+// Importing the constant do be dispatch
+import { ORDER_DELIVER_RESET, ORDER_PAY_RESET } from '../constants/orderContstants'
+
+// Importing the action to be dispatch
+import { deliverOrder, getOrderDetails, payOrder } from '../actions/orderActions'
+
+// Improting the components
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { deliverOrder, getOrderDetails, payOrder } from '../actions/orderActions'
-import { ORDER_DELIVER_RESET, ORDER_PAY_RESET } from '../constants/orderContstants'
 
 const OrderDetailsPage = ({match, history}) => {
     const orderId = match.params.id

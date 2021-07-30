@@ -1,10 +1,15 @@
+// Importing the modules
 import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import { Button, Row, Col, ListGroup, Image, Card} from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
+import { Button, Row, Col, ListGroup, Image, Card} from 'react-bootstrap'
+
+// Importing the action to be dispatch
+import { createOrder } from '../actions/orderActions'
+
+// Importing the components
 import CheckoutSteps from '../components/CheckoutSteps'
 import Message from '../components/Message'
-import { createOrder } from '../actions/orderActions'
 
 const PlaceOrderPage = ({history}) => {
     const dispatch = useDispatch()

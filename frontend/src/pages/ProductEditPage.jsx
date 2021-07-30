@@ -1,13 +1,20 @@
+// Importing the modules 
 import React, {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import { Button, Form } from 'react-bootstrap'
 import {useSelector, useDispatch} from 'react-redux'
+
+// Importing the constant to be dispatch
+import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
+
+// Importing the action to be dispatch
 import {listProductDetails, updateProduct} from '../actions/productActions'
+
+// Importing the components 
 import FormContainer from '../components/FormContainer'
-import {Link} from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
 
 const ProductEditPage = ({match, history}) => {
     const productId = match.params.id
