@@ -14,12 +14,19 @@ import Message from '../components/Message'
 
 const Productpage = ({ history, match }) => {
     const [qty, setQty] = useState(1)
+    const [rating, setRating] = useState(0)
+    const [comment, setComment] = useState('')
 
     const dispatch = useDispatch()
 
     const productDetails = useSelector(state => state.productDetails)
-
     const {loading, error, product} = productDetails
+
+    const productReviewCreate = useSelector(state => state.productReviewCreate)
+    const {success: successProductReview, error: errorProductReview} = productReviewCreate
+
+    const userLogin = useSelector(state => state.userLogin)
+    const {userInfo} = userLogin
 
     useEffect(() => {
         dispatch(listProductDetails(match.params.id))
@@ -36,6 +43,7 @@ const Productpage = ({ history, match }) => {
             </Link>
             {
             loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : 
+                <>
                 <Row>
                     <Col md={6}>
                         <Image src={product.image} fluid />
@@ -96,6 +104,13 @@ const Productpage = ({ history, match }) => {
                         </Card>
                     </Col>
                 </Row>
+                <Row>
+                    <Col md={6}>
+                        <h2>Reviews</h2>
+                        {product.reviews.length === 0 && <Message>No Reviews</Message>}
+                    </Col>
+                </Row>
+                </>
             }
         </div>
     )
