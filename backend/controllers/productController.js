@@ -25,7 +25,7 @@ const getProductById = asyncHandler(async (req, res) => {
 
 // @desc    Delete Product by Id
 // @route   DELETE /products/:id
-// @access  PUBLIC/Admin 
+// @access  PRIVATE/Admin 
 const deleteProductById = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
 
@@ -40,7 +40,7 @@ const deleteProductById = asyncHandler(async (req, res) => {
 
 // @desc    Create a new Product
 // @route   POST /products/
-// @access  PUBLIC/Admin 
+// @access  PRIVATE/Admin 
 const createProduct = asyncHandler(async (req, res) => {
     const product = new Product({
         name: 'Sample Name',
@@ -60,7 +60,7 @@ const createProduct = asyncHandler(async (req, res) => {
 
 // @desc    Update Product by Id
 // @route   POST /products/:id
-// @access  PUBLIC/Admin 
+// @access  PRIVATE/Admin 
 const updateProduct = asyncHandler(async (req, res) => {
     const {name, price, description, image, brand, category, countInStock} = req.body
 
@@ -83,4 +83,41 @@ const updateProduct = asyncHandler(async (req, res) => {
     }
 })
 
-export {getProducts, getProductById, deleteProductById, createProduct, updateProduct}
+// @desc    Create new review
+// @route   POST /products/:id/reviews
+// @access  PRIVATE
+const createProductReview = asyncHandler(async (req, res) => {
+    const {rating, comments} = req.body
+
+    const product = await Product.findById(req.params.id)
+
+    if(product) {
+        const alreadyReviwed = product.reviews.find(r => r.user.toString() === req.user._id.toString())
+
+        if(alreadyReviwed) {
+            res.status(400)
+            throw new Error('Product already reviewed')
+        }
+
+        const review = {
+            name: req.user.name,
+            rating: Number(rating),
+            comment,
+            user: req.user._id
+        }
+
+        product.reviews.push(review)
+
+        product.numReviews = product.reviews.length
+
+        product.rating = product.reviews.reduce((acc, item) => item.rating + acc, 0)/product.reviews.length 
+
+        await product.save()
+        res.status(201).json({message: 'Review added'})
+    }else {
+        res.status(404)
+        throw new Error('Product not found')
+    }
+})
+
+export {getProducts, getProductById, deleteProductById, createProduct, updateProduct, createProductReview}
