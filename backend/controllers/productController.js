@@ -87,12 +87,12 @@ const updateProduct = asyncHandler(async (req, res) => {
 // @route   POST /products/:id/reviews
 // @access  PRIVATE
 const createProductReview = asyncHandler(async (req, res) => {
-    const {rating, comments} = req.body
+    const {rating, comment} = req.body
 
     const product = await Product.findById(req.params.id)
 
     if(product) {
-        const alreadyReviwed = product.reviews.find(r => r.user.toString() === req.user._id.toString())
+        const alreadyReviwed = product.reviews.find((r) => r.user.toString() === req.user._id.toString())
 
         if(alreadyReviwed) {
             res.status(400)
