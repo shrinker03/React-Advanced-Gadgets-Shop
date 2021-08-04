@@ -23,7 +23,7 @@ h2 {
     text-decoration: none;
 }
 
-carousel
+
 .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {
@@ -32,7 +32,7 @@ carousel
 
 .carousel-caption {
   position: absolute;
-  top: 150px;
+  top: 0;
 }
 
 .carousel-caption h2 {
@@ -43,12 +43,10 @@ carousel
   height: 300px;
   padding: 30px;
   margin: 40px;
-  border-radius: 50%;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 10%;
 } 
 
-.carousel{
+.carousel a{
   margin: 0 auto;
 }  
 
@@ -56,4 +54,14 @@ carousel
   .carousel-caption h2 {
     font-size: 2.5vw;
   }
+}
+
+@media (min-width: 1400px) {
+  .carousel img {
+    height: 300px;
+    padding: 30px;
+    margin: 40px;
+    border-radius: 50%;
+    margin-left: 450px;
+  } 
 }

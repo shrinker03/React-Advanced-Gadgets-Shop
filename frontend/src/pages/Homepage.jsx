@@ -2,6 +2,7 @@
 import React, {useEffect} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import {Link} from 'react-router-dom'
 
 // Importing the actions to be dispatch
 import {listProducts} from '../actions/productActions'
@@ -30,7 +31,7 @@ useEffect(() => {
  
     return (
         <div>
-            {!keyword && <ProductCarousel />}
+            {!keyword ? <ProductCarousel /> : <Link to='/' className="btn btn-light">Go Back</Link>}
             <h1>Latest Products</h1>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
                 (
