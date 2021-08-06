@@ -8,12 +8,12 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 // Importing Components to render in app.js
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage.jsx";
+import HomePage from "./pages/HomePage.js";
 import ProductPage from "./pages/ProductPage.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
-import ProfilePage from "./pages/ProfilePage,jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 import ShippingPage from "./pages/ShippingPage.jsx";
 import PaymentPage from "./pages/PaymentPage.jsx";
 import PlaceOrderPage from "./pages/PlaceOrderPage.jsx";
