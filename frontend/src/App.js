@@ -8,8 +8,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 // Importing Components to render in app.js
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
+import HomePage from "./pages/HomePage";
 import CartPage from "./pages/CartPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
