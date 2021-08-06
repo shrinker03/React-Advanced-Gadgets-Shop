@@ -8,21 +8,21 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 // Importing Components to render in app.js
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ProductPage from "./pages/ProductPage";
-import HomePage from "./pages/HomePage";
-import CartPage from "./pages/CartPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import ProfilePage from "./pages/ProfilePage";
-import ShippingPage from "./pages/ShippingPage";
-import PaymentPage from "./pages/PaymentPage";
-import PlaceOrderPage from "./pages/PlaceOrderPage";
-import OrderDetailsPage from "./pages/OrderDetailsPage";
-import UserListPage from "./pages/UserListPage";
-import UserEditPage from "./pages/UserEditPage";
-import ProductListPage from "./pages/ProductListPage";
-import ProductEditPage from "./pages/ProductEditPage";
-import OrderListPage from "./pages/OrderListPage";
+import HomePage from "./pages/HomePage.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
+import CartPage from "./pages/CartPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
+import ProfilePage from "./pages/ProfilePage,jsx";
+import ShippingPage from "./pages/ShippingPage.jsx";
+import PaymentPage from "./pages/PaymentPage.jsx";
+import PlaceOrderPage from "./pages/PlaceOrderPage.jsx";
+import OrderDetailsPage from "./pages/OrderDetailsPage.jsx";
+import UserListPage from "./pages/UserListPage.jsx";
+import UserEditPage from "./pages/UserEditPage.jsx";
+import ProductListPage from "./pages/ProductListPage.jsx";
+import ProductEditPage from "./pages/ProductEditPage.jsx";
+import OrderListPage from "./pages/OrderListPage.jsx";
 
 const App = () => {
   return (
