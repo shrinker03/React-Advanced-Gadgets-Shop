@@ -114,7 +114,7 @@ const ProfilePage = ({location, history}) => {
                                     ) : (
                                         <i className="fas fa-times" style={{color: 'red'}}></i>
                                     ) }</td>
-                                    <td>{order.isDeliverd ? (
+                                    <td>{order.isDelivered ? (
                                         order.deliveredAt
                                     ) : (
                                         <i className="fas fa-times" style={{color: 'red'}}></i>

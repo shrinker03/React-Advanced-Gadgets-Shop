@@ -31,7 +31,7 @@ const ProductCarousel = () => {
                             </Link>
                         </Carousel.Item>
                     ))}
-                </Carousel>
+                </Carousel>    
             )
     )
 }

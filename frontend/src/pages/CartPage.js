@@ -34,6 +34,10 @@ const CartPage = ({match, location, history}) => {
         history.push(`/login?redirect=shipping`)
     }
 
+    const addDecimal = (num) => {
+        return (Math.round(num * 100) / 100).toFixed(2)
+    }
+
     return (
         <Row>
             <Col md={8}>
@@ -75,7 +79,7 @@ const CartPage = ({match, location, history}) => {
                     <ListGroup variant="flush">
                         <ListGroup.Item>
                             <h2>Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items</h2>
-                            <h4>Total: ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)}</h4>                           
+                            <h4>Total: ${addDecimal(cartItems.reduce((acc, item) => acc + item.qty * item.price, 0))}</h4>                           
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <Button 
