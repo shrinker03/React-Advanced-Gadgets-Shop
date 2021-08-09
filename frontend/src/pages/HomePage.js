@@ -3,6 +3,7 @@ import React, {useEffect} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom'
+import Banner from './banner-2.svg'
 
 // Importing the actions to be dispatch
 import {listProducts} from '../actions/productActions'
@@ -14,7 +15,6 @@ import Message from '../components/Message';
 import Paginate from '../components/Paginate';
 import ProductCarousel from '../components/ProductCarousel';
 import Meta from '../components/Meta';
-
 
 const Homepage = ({match}) => {
 const keyword = match.params.keyword
@@ -33,9 +33,9 @@ useEffect(() => {
     return (
         <div>
             <Meta />
-
+            <img src={Banner} alt="Banner" />
             {!keyword ? <ProductCarousel /> : <Link to='/' className="btn btn-light">Go Back</Link>}
-           
+            
             <h1 className="mt-3">Latest Products</h1>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
                 (
