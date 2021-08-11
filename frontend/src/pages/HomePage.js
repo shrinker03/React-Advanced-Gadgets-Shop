@@ -33,9 +33,22 @@ useEffect(() => {
     return (
         <div>
             <Meta />
+
             <img src={Banner} alt="Banner" />
-            {!keyword ? <ProductCarousel /> : <Link to='/' className="btn btn-light">Go Back</Link>}
             
+            <h1 className="mt-3">Deals of the Day</h1>
+            <Row>
+                {products.map((product) => (
+                    product.isDiscount && (
+                        <Col key={product._id} xs={12} sm={12} md={6} lg={4} xl={3}>
+                            <Product product={product} />
+                        </Col>
+                    )
+                ))}
+            </Row>
+
+            {!keyword ? <ProductCarousel /> : <Link to='/' className="btn btn-light">Go Back</Link>}
+
             <h1 className="mt-3">Latest Products</h1>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
                 (

@@ -60,6 +60,11 @@ const productSchema = mongoose.Schema({
         required: true,
         default: 0
     },
+    isDiscount: {
+        type: Boolean,
+        required: true,
+        default: false
+    }
 }, {
     timestamps: true
 })

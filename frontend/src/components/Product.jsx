@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Row, Col, Badge, Tag } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Rating from './Rating';
 
@@ -22,7 +22,34 @@ const Product = ({product}) => {
                         <Rating value={product.rating} text={`${product.numReviews} ratings`} />
                     </Card.Text>
 
-                    <Card.Text as="h3">${product.price}</Card.Text>
+                    {product.isDiscount 
+                        ? 
+                        <Row>
+                            <Col>
+                                <Card.Text as="h3" >
+                                    <Badge bg="secondary" style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>${product.price}</Badge>
+                                </Card.Text>
+                            </Col>
+                            <Col>
+                                {
+                                    product.isDiscount && 
+                                    (
+                                        <> 
+                                            <Card.Text as="h3">
+                                                ${product.discountPrice}
+                                            </Card.Text>
+                                        </>
+                                    )
+                                }
+                            </Col>
+                        </Row>
+                        :
+                        <Card.Text as="h3">
+                            ${product.price}
+                        </Card.Text>
+                    }    
+                    
+                   
                 </Card.Body>
             </Card>
         </div>
