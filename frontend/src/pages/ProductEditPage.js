@@ -27,6 +27,8 @@ const ProductEditPage = ({match, history}) => {
     const [countInStock, setCountInStock] = useState(0)
     const [description, setDescription] = useState('')
     const [uploading, setUploading] = useState(false)
+    const [isDiscount, setIsDiscount] = useState(false)
+    const [discountPrice, setDiscountPrice] = useState(0)
 
     const dispatch = useDispatch()
 
@@ -51,6 +53,8 @@ const ProductEditPage = ({match, history}) => {
                 setCategory(product.category)
                 setCountInStock(product.countInStock)
                 setDescription(product.description)
+                setIsDiscount(product.isDiscount)
+                setDiscountPrice(product.discountPrice)
             }
         }
         
@@ -81,7 +85,7 @@ const ProductEditPage = ({match, history}) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(updateProduct({_id: productId, name, price, image, brand, category, description, countInStock}))
+        dispatch(updateProduct({_id: productId, name, price, image, brand, category, description, countInStock, isDiscount, discountPrice}))
     }
 
     return (
@@ -127,6 +131,17 @@ const ProductEditPage = ({match, history}) => {
                     <Form.Group controlId="description" className="my-3 ">
                         <Form.Label>Description</Form.Label>
                         <Form.Control type="description" placeholder="Enter Description" value={description} onChange={(e) => setDescription(e.target.value)}></Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="idDiscount" className="my-3">
+                        <Form.Label>Discountable Item</Form.Label>
+                        <Form.Control className="ml-4" as="select" value={isDiscount} custom onChange={(e) => setIsDiscount(e.target.value)} >
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
+                        </Form.Control>
+                    </Form.Group>    
+                    <Form.Group controlId="discountPrice" className="my-3 ">
+                        <Form.Label>Discount Price</Form.Label>
+                        <Form.Control type="price" placeholder="Enter Discount price" value={discountPrice} onChange={(e) => setDiscountPrice(e.target.value)}></Form.Control>
                     </Form.Group>
                     <Button type="submit" variant="primary">
                         Update

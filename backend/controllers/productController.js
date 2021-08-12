@@ -62,7 +62,9 @@ const createProduct = asyncHandler(async (req, res) => {
         category: 'sample category',
         countInStock: 0,
         numReviews: 0,
-        description: 'sample description'
+        description: 'sample description',
+        isDiscount: false,
+        discountPrice: 0
     })
 
     const createdProduct = await product.save()
@@ -73,7 +75,7 @@ const createProduct = asyncHandler(async (req, res) => {
 // @route   POST /products/:id
 // @access  PRIVATE/Admin 
 const updateProduct = asyncHandler(async (req, res) => {
-    const {name, price, description, image, brand, category, countInStock} = req.body
+    const {name, price, description, image, brand, category, countInStock, isDiscount, discountPrice } = req.body
 
     const product = await Product.findById(req.params.id)
 
@@ -84,7 +86,9 @@ const updateProduct = asyncHandler(async (req, res) => {
         product.image = image
         product.brand = brand
         product.category = category,
-        product.countInStock = countInStock
+        product.countInStock = countInStock,
+        product.isDiscount = isDiscount,
+        product.discountPrice = discountPrice
 
         const updatedProduct = await product.save()
         res.json(updateProduct)
