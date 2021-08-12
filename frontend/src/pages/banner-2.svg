@@ -25,7 +25,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.0859962"
-     inkscape:cx="633.05932"
+     inkscape:cx="633.05931"
      inkscape:cy="310.77457"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
@@ -1474,17 +1474,6 @@
       </g>
     </g>
     <text
-       style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.88752px;font-family:'Bebas Neue Bold';-inkscape-font-specification:BebasNeueBold;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.842417"
-       id="text4277-8"
-       x="221.99252"
-       y="111.95741"
-       transform="scale(0.96877794,1.0322283)"><tspan
-         x="221.99252"
-         sodipodi:role="line"
-         style="stroke-width:0.842417"
-         y="111.95741"
-         id="tspan20515-1">to</tspan></text>
-    <text
        style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-size:15.875px;font-family:'Montserrat Black';-inkscape-font-specification:Montserrat-BlackItalic;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.842417"
        id="text4673-1"
        x="190.33879"
@@ -1532,19 +1521,19 @@
     <text
        style="font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.88752px;font-family:'Bebas Neue Bold';-inkscape-font-specification:BebasNeueBold;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.842417"
        id="text4277"
-       x="176.99814"
-       y="111.78111"
+       x="186.05154"
+       y="113.43329"
        transform="scale(0.96877794,1.0322283)"><tspan
-         x="176.99814"
+         x="186.05154"
          sodipodi:role="line"
          style="stroke-width:0.842417"
-         y="111.78111"
-         id="tspan10809">Welcome,</tspan><tspan
-         x="176.99814"
+         y="113.43329"
+         id="tspan10809">Welcome to,</tspan><tspan
+         x="186.05154"
          sodipodi:role="line"
          style="stroke-width:0.842417"
-         y="123.11294"
-         id="tspan20515"></tspan></text>
+         y="124.76511"
+         id="tspan20515" /></text>
     <g
        id="g4283"
        transform="matrix(0.81611148,0,0,-0.86956293,-1.6356703,454.05733)">
@@ -1803,7 +1792,7 @@
       </g>
     </g>
     <text
-       style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-size:27.1598px;font-family:'Montserrat Black';-inkscape-font-specification:Montserrat-BlackItalic;writing-mode:lr-tb;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.864753"
+       style="font-style:italic;font-variant:normal;font-weight:900;font-stretch:normal;font-size:27.1598px;font-family:'Montserrat Black';-inkscape-font-specification:Montserrat-BlackItalic;writing-mode:lr-tb;fill:#f22e42;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.864753"
        id="text4673"
        x="155.55159"
        y="145.42267"
@@ -1812,7 +1801,7 @@
          y="145.42267"
          sodipodi:role="line"
          id="tspan4671"
-         style="font-size:27.1598px;stroke-width:0.864753">Gadgets</tspan></text>
+         style="font-size:27.1598px;stroke-width:0.864753;fill:#f22e42;fill-opacity:1">Gadgets</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,34.191624,70.473122)"

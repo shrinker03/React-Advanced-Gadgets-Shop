@@ -123,7 +123,7 @@ const Productpage = ({ history, match }) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col md={6}>
+                    <Col md={6} className="mt-2 reviews">
                         <h2>Reviews</h2>
                         {product.reviews.length === 0 && <Message>No Reviews</Message>}
                         <ListGroup variant="flush">
@@ -151,11 +151,11 @@ const Productpage = ({ history, match }) => {
                                                 <option value='5'>5 - Excellent</option>
                                             </Form.Control>
                                         </Form.Group>
-                                        <Form.Group controlId='comment'>
+                                        <Form.Group controlId='comment' className="mt-2">
                                             <Form.Label>Comment</Form.Label>
                                             <Form.Control as='textarea' row='3' value={comment} onChange={(e) => setComment(e.target.value)}></Form.Control>
                                         </Form.Group>
-                                        <Button type="submit" variant="primary">
+                                        <Button type="submit" variant="primary" className="mt-3">
                                             Submit
                                         </Button>
                                     </Form>

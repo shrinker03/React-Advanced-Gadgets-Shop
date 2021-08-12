@@ -36,7 +36,7 @@ useEffect(() => {
 
             <img src={Banner} alt="Banner" />
             
-            <h1 className="mt-3">Deals of the Day</h1>
+            <h1 className="mt-5 deals-of-day">Deals of the Day</h1>
             <Row>
                 {products.map((product) => (
                     product.isDiscount && (
@@ -49,7 +49,7 @@ useEffect(() => {
 
             {!keyword ? <ProductCarousel /> : <Link to='/' className="btn btn-light">Go Back</Link>}
 
-            <h1 className="mt-3">Latest Products</h1>
+            <h1 className="mt-5 latest-products">Latest Products</h1>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> :
                 (
                 <>

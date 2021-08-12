@@ -153,3 +153,12 @@ h2 {
     margin-left: 0;
   } 
 } 
+
+.deals-of-day, 
+.latest-products, 
+.reviews {
+  padding: 0;
+  margin: 0;
+}
+
+ 

@@ -63,8 +63,8 @@ const CartPage = ({match, location, history}) => {
                                             ))}
                                         </Form.Control>
                                     </Col> 
-                                    <Col md={2}>
-                                        <Button type="button" variant="light" onClick={() => removeFromCartHandler(item.product)}>
+                                    <Col md={2} className="mt-2">
+                                        <Button type="button" variant="danger" onClick={() => removeFromCartHandler(item.product)}>
                                             <i className='fas fa-trash'></i>
                                         </Button>
                                     </Col>
