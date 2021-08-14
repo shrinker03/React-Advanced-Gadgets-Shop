@@ -5,5 +5,9 @@ Bootstrap, Paypal payment geteway and for hosting Heroku is used.
 
 The overview of the project is to get user a Web App where user could order the latest gadgets
 
-This project was bootstrapped with Create React App.
+The App has two interfaces one if for Users and another is for Admin Users.
 
+Functionality Users can Perform :- Register/Login, Buy Product by paying through Paypal, Review the product.
+
+Functionality Admin Users can Perform :- Login, Edit Users, Edit Product, Edit and Mark Orders as Delivered,
+Create Product and Delete User, Product and Order as well.
