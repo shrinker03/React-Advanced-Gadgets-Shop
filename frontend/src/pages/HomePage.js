@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom'
-import Banner from './banner-2.svg'
+import Banner from './gadgets-shop-banner.svg'
 
 // Importing the actions to be dispatch
 import {listProducts} from '../actions/productActions'
@@ -34,7 +34,7 @@ useEffect(() => {
         <div>
             <Meta />
 
-            <img src={Banner} alt="Banner" />
+            <img src={Banner} alt="Gadgets-Shop-Banner" />
             
             <h1 className="mt-5 deals-of-day">Deals of the Day</h1>
             <Row>
