@@ -22,7 +22,7 @@ const Header = ({history}) => {
             <Navbar bg="dark" expand="lg" variant="dark" collapseOnSelect >
                 <Container>
                     <LinkContainer to="/">
-                        <Navbar.Brand>Gadgets Shop</Navbar.Brand>
+                        <Navbar.Brand>Gadgets Store</Navbar.Brand>
                     </LinkContainer>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
