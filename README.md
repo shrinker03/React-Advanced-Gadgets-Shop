@@ -10,4 +10,4 @@ The App has two interfaces one if for Users and another is for Admin Users.
 Functionality Users can Perform :- Register/Login, Buy Product by paying through Paypal, Review the product.
 
 Functionality Admin Users can Perform :- Login, Edit Users, Edit Product, Edit and Mark Orders as Delivered,
-Create Product and Delete User, Product and Order as well.
+Create Product and Delete User, Product and Order as well, Admin user can manage the entire application.
