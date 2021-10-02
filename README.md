@@ -9,7 +9,7 @@ The overview of the project is to get users a Web Application where users could 
 
 The App has two interfaces one if for Users and another is for Admin Users.
 
-Functionality Users can Perform :- Register/Login, Buy Product by paying through Paypal Payment API, Review the products.
+Functionality of Users :- Register/Login, Buy Product by paying through Paypal Payment API, Review the products.
 
 Functionality of Admin Users :- Login, Edit Users, Edit Product, Edit and Mark Orders as Delivered,
 Create Product and Delete User, Product and Order as well, Admin user can manage the entire application.
