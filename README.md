@@ -5,7 +5,7 @@ Live Demo :- https://gadgets-store-app.herokuapp.com/
 This is an advanced MERN stack project using technologies like react, redux, react-router, restAPI, nodeJs, Expressjs, MongoDB, JWT-token, redux-thunk
 Bootstrap, Paypal payment geteway API and for hosting Heroku is used.
 
-The overview of the project is to get a user a Web Application where users could order the latest gadgets and get the best Deal on products.
+The overview of the project is to give a user a Web Application where users could order the latest gadgets and get the best Deal on products.
 
 The App has two interfaces one if for Users and another is for Admin Users.
 
