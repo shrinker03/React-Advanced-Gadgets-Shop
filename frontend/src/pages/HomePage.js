@@ -1,6 +1,7 @@
 // Importing the modules
 import React, {useEffect} from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom'
 import Banner from './gadgets-shop-banner.svg'
@@ -33,14 +34,20 @@ useEffect(() => {
     return (
         <div>
             <Meta />
-
+            <Alert variant='info'>
+                <Alert.Heading>
+                    Thank you for visiting Gadgets Store ! 🙏🙏
+                    This is a Portfolio Project of <Alert.Link href='https://shivamdamre.herokuapp.com'> Shivam Damre</Alert.Link> <span className='ball'>😊</span>
+                </Alert.Heading>
+                
+            </Alert>
             <img src={Banner} alt="Gadgets-Shop-Banner" />
             
             <h1 className="mt-5 deals-of-day">Deals of the Day</h1>
             <Row>
-                {products.map((product) => (
+                {products?.map((product) => (
                     product.isDiscount && (
-                        <Col key={product._id} xs={12} sm={12} md={6} lg={4} xl={3}>
+                        <Col key={product?._id} xs={12} sm={12} md={6} lg={4} xl={3}>
                             <Product product={product} />
                         </Col>
                     )
@@ -54,8 +61,8 @@ useEffect(() => {
                 (
                 <>
                     <Row>
-                        {products.map((product) => (
-                            <Col key={product._id} xs={12} sm={12} md={6} lg={4} xl={3}>
+                        {products?.map((product) => (
+                            <Col key={product?._id} xs={12} sm={12} md={6} lg={4} xl={3}>
                                 <Product product={product} />
                             </Col>
                         ))}
