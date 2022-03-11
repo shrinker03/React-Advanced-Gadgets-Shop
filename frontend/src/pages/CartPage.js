@@ -95,14 +95,14 @@ const CartPage = ({match, location, history}) => {
                                 <Col md={12} lg={6}>
                                     <ListGroup.Item key={item.product}>
                                         <Row>
-                                            <Col md={2} className="my-2">
+                                            <Col xs={12} md={2} className="my-2">
                                                 <Image src={item.image} alt={item.name} fluid rounded />
                                             </Col>  
-                                            <Col md={3} className="my-2">
+                                            <Col xs={12} md={3} className="my-2">
                                                 <Link className='cart-product-name' to={`/product/${item.product}`}>{item.name}</Link>
                                             </Col>   
-                                            <Col md={2} className="my-2">${item.isDiscounted ? (item.discountPrice) : (item.price)}</Col>
-                                            <Col md={2} className="my-2">
+                                            <Col xs={4} md={2} className="my-2">${item.isDiscounted ? (item.discountPrice) : (item.price)}</Col>
+                                            <Col xs={4} md={2} className="my-2">
                                                 <Form.Control as="select" custom value={item.qty} onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))} >
                                                     {[...Array(item.countInStock).keys()].map((x) => (
                                                         <option key={x+1} value={x+1}>
@@ -111,7 +111,7 @@ const CartPage = ({match, location, history}) => {
                                                     ))}
                                                 </Form.Control>
                                             </Col> 
-                                            <Col md={2} className="mt-2">
+                                            <Col xs={4} md={2} className="my-2">
                                                 <Button type="button" variant="danger" onClick={() => removeFromCartHandler(item.product)}>
                                                     <i className='fas fa-trash'></i>
                                                 </Button>

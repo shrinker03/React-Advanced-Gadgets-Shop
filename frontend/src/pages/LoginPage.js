@@ -81,12 +81,12 @@ const LoginPage = ({location, history}) => {
                     </Col>
                 </Row>
                 <Row className="py-3">
-                    <Col md={6}>
+                    <Col className='p-2' xs={12} md={6}>
                         <Button onClick={guestHandler} variant="outline-secondary" size='lg'>
                             Login as Guest
                         </Button>
                     </Col>
-                    <Col md={6}>
+                    <Col className='p-2' xs={12} md={6}>
                         <Button onClick={adminGuestHandler} variant="outline-primary" size='lg'>
                             Login as Admin Guest
                         </Button>
