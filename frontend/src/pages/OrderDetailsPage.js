@@ -76,13 +76,13 @@ const OrderDetailsPage = ({match, history}) => {
         dispatch(deliverOrder(order))
     }
 
-    const addDecimal = (num) => {
-        return (Math.round(num * 100) / 100).toFixed(2)
-    }
+    // const addDecimal = (num) => {
+    //     return (Math.round(num * 100) / 100).toFixed(2)
+    // }
 
-    if(!loading) {
-        order.itemsPrice = addDecimal(order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0))
-    }
+    // if(!loading) {
+    //     order.itemsPrice = order.itemsPrice
+    // }
     
     return (
         loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : 
@@ -134,7 +134,7 @@ const OrderDetailsPage = ({match, history}) => {
                                                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                                                 </Col>
                                                 <Col md={4}>
-                                                    {item.qty} x {item.price} = ${(item.qty * item.price).toFixed(2)}
+                                                    Total Quantity = {item.qty} 
                                                 </Col>
                                             </Row>
                                         </ListGroup.Item>
@@ -150,7 +150,7 @@ const OrderDetailsPage = ({match, history}) => {
                             <ListGroup.Item>
                                 <h2>Order Summary</h2>
                             </ListGroup.Item>
-                            <ListGroup.Item>
+                            {/* <ListGroup.Item>
                                 <Row>
                                     <Col>
                                         Items
@@ -159,7 +159,7 @@ const OrderDetailsPage = ({match, history}) => {
                                         ${order.itemsPrice}
                                     </Col>
                                 </Row>
-                            </ListGroup.Item>
+                            </ListGroup.Item> */}
                             <ListGroup.Item>
                                 <Row>
                                     <Col>
@@ -204,8 +204,31 @@ const OrderDetailsPage = ({match, history}) => {
                                     <Button type="button" className="btn col-12" onClick={deliverHandler}>Mark As Delivered</Button>
                                 </ListGroup.Item>
                             )}
+                            {userInfo && !userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                                <ListGroup.Item style={{marginTop: 20}}>
+                                    <h4>
+                                        Your order is on the way...🚚🚚
+                                    </h4>
+                                    <h5>
+                                        Once Delivered Admin User Will Mark it as Deliverd
+                                    </h5>
+                                </ListGroup.Item>
+                            )}
                         </ListGroup>
                     </Card>
+                    {!order.isPaid && (
+                        <Card>
+                            <ListGroup variant="flush">
+                                <ListGroup.Item>
+                                    <h5>Use this Credentials for testing Paypal Payment</h5>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <h6>Username: sb-vmbw36828615@personal.example.com</h6>
+                                    <h6>Password: shivam@123</h6>
+                                </ListGroup.Item>
+                            </ListGroup>
+                        </Card>
+                    )}
                 </Col>
             </Row>
         </div>

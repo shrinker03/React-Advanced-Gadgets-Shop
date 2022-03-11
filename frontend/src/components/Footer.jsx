@@ -5,7 +5,7 @@ const Footer = () => {
     return(
         <Container>
             <Row>
-                <Col className="text-center py-3">Copyright &copy; Gadgets Store</Col>
+                <Col className="text-center py-3">Made with <span style={{color: 'red', fontSize: '20px', margin: 5}}>♥</span> in India</Col>
             </Row>
         </Container>
     )

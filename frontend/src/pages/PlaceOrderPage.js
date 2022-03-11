@@ -20,9 +20,9 @@ const PlaceOrderPage = ({history}) => {
         return (Math.round(num * 100) / 100).toFixed(2)
     }
 
-    cart.itemsPrice = addDecimal(cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0))
-    cart.shippingPrice = addDecimal(cart.itemsPrice > 100 ? 0 : 100)
-    cart.taxPrice = addDecimal(Number(cart.itemsPrice * 0.15).toFixed(2))
+    cart.itemsPrice = addDecimal(cart.cartItems.reduce((acc, item) => acc + (item.isDiscounted ? (item.discountPrice) : (item.price)) * item.qty, 0))
+    cart.shippingPrice = addDecimal(cart.itemsPrice > 100 ? 0 : 10)
+    cart.taxPrice = addDecimal(Number(cart.itemsPrice * 0.05).toFixed(2))
     cart.totalPrice = addDecimal(Number(cart.itemsPrice) + Number(cart.shippingPrice) + Number(cart.taxPrice))
 
     const orderCreate = useSelector(state => state.orderCreate)
@@ -45,7 +45,7 @@ const PlaceOrderPage = ({history}) => {
             shippingPrice: cart.shippingPrice,
             taxPrice: cart.taxPrice,
             totalPrice: cart.totalPrice
-        }))
+        }))  
     } 
     
     return (
@@ -80,7 +80,7 @@ const PlaceOrderPage = ({history}) => {
                                                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                                                 </Col>
                                                 <Col md={4}>
-                                                    {item.qty} x {item.price} = ${(item.qty * item.price).toFixed(2)}
+                                                    {item.qty} x {item.isDiscounted ? (item.discountPrice) : (item.price)} = ${(item.qty * (item.isDiscounted ? (item.discountPrice) : (item.price))).toFixed(2)}
                                                 </Col>
                                             </Row>
                                         </ListGroup.Item>

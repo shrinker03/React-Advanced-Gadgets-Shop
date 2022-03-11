@@ -75,7 +75,7 @@ const Productpage = ({ history, match }) => {
                                 <Rating value={product.rating} text={`${product.numReviews} reviews`} />
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                Price: ${product.price}
+                                Price: ${product?.isDiscount ? (product?.discountPrice) : (product?.price)}
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 {product.description}
@@ -88,7 +88,7 @@ const Productpage = ({ history, match }) => {
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>Price:</Col>
-                                        <Col>${product.price}</Col>
+                                        <Col>${product?.isDiscount ? (product?.discountPrice) : (product?.price)}</Col>
                                     </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
