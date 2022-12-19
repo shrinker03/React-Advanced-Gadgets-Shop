@@ -68,7 +68,6 @@ const OrderDetailsPage = ({match, history}) => {
     }, [orderId, dispatch, order, successPay, successDeliver, history, userInfo])
 
     const successPaymentHandler = (paymentResult) => {
-        console.log(paymentResult)
         dispatch(payOrder(orderId, paymentResult))
     }
 
