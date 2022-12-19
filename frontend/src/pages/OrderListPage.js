@@ -20,7 +20,16 @@ const OrderListPage = ({history}) => {
     const orderList = useSelector(state => state.orderList)
     const {orders, error, loading} = orderList
 
+    console.log(orders, 'orders')
     
+    const sort = () => {
+        console.log(orders.sort())
+    }
+
+    useEffect(() => {
+
+    }, [])
+
     useEffect(() => {
         if(userInfo && userInfo.isAdmin) {
             dispatch(listOrder())
@@ -32,6 +41,7 @@ const OrderListPage = ({history}) => {
     return (
         <div>
             <h1>Orders</h1>
+            <Button onClick={sort}>Sort Orders</Button>
             {loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : (
                 <Table striped bordered hover responsive className="table-sm">
                     <thead>
