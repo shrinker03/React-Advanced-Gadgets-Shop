@@ -1,6 +1,6 @@
 # React-Advanced-Gadgets-Shop
 
-Live Demo :- https://gadgets-store-app.herokuapp.com/
+Live Demo :- https://gadgets-store.cyclic.app/
 
 This is an advanced MERN stack project using technologies like React, Redux, react-router, restAPI, nodeJs, Expressjs, MongoDB, JWT-token, redux-thunk
 Bootstrap, Paypal payment geteway API and for hosting Heroku is used.
